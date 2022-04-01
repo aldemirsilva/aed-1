@@ -8,7 +8,7 @@
 
 void lerVetor(int v[], int tam) {
   int x;
-  static int k=0;
+  static int k = 0;
   k++;
 
   for(x = 0; x < tam ; x++) {
@@ -25,7 +25,7 @@ int produtoInterno(int v1[], int v2[], int tam) {
   int resultado=0;
 
   for(x = 0; x < tam ; x++) {
-    resultado = resultado+ (v1[x]*v2[x]);
+    resultado = resultado + (v1[x] * v2[x]);
   }
   return resultado;
 }
@@ -38,24 +38,24 @@ int produtoInterno(int v1[], int v2[], int tam) {
 
 
 int buscaBin(int v[], int n, int chave) {
-  int inicio,fim,meio;
+  int inicio, fim, meio;
 
   inicio = 0;
-  fim = n-1;
+  fim = n - 1;
 
-  while(inicio<=fim) {
-    meio = (inicio+fim)/2;
-    if( chave > v[meio]) {
-      inicio = meio+1;
+  while(inicio <= fim) {
+    meio = (inicio + fim) / 2;
+    if(chave > v[meio]) {
+      inicio = meio + 1;
     }
     else {
       if(chave < v[meio]) {
-	fim  = meio -1;
+	fim  = meio - 1;
       }
       else { return 1; }
     }
   }
-  return 0;
+    return 0;
   }
 
 
@@ -67,11 +67,11 @@ void selecao( int v[], int n) {
   int i,j;
   int posMenor;
   int tmp;
-  int tamMenos1 = n -1;
+  int tamMenos1 = n-1;
 
   for(i = 0; i < tamMenos1 ; i++) {
     posMenor= i;
-     for(j = i+1; j < n ; j++) {
+     for(j = i+1; j < n; j++) {
        if(v[j] < v[posMenor]) {
 	 posMenor = j;
        }
