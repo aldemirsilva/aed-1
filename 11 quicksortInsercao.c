@@ -3,7 +3,6 @@
 #include <time.h>
 #define N 100000000
 
-
 void ordenaInsercao(int  v[], int tamanho) {
     int i, j;
     int pivot;
@@ -11,7 +10,7 @@ void ordenaInsercao(int  v[], int tamanho) {
     for(j = 1; j < tamanho; j++ ) {
       i = j -1;
       pivot = v[j];
-      while((i>=0) && (v[i]>pivot)) {
+      while((i >= 0) && (v[i] > pivot)) {
 	  v[i+1] = v[i];
 	i--;
       }
@@ -24,13 +23,13 @@ void ordenaInsercao(int  v[], int tamanho) {
 
 void qSortInterno(int v[], int inicio, int fim);
 
-/* Funcao qickSort a ser chamada em outros pontos do programa. Serve apenas para disparar a chamada revursiva */
+/* Funcao quickSort a ser chamada em outros pontos do programa. Serve apenas para disparar a chamada recursiva */
 
 
 void quickSort(int v[], int n) {
 
   qSortInterno(v, 0, n-1);
-  ordenaInsercao(v,n);
+  ordenaInsercao(v, n);
 }
 
 /* Implementacao do quicksort em si. */
@@ -55,20 +54,18 @@ void qSortInterno(int v[], int inicio, int fim) {
 	i++; j--;
       }
     } while (i<=j);
-    qSortInterno(v,inicio, j);
-    qSortInterno(v, i,fim);
+    qSortInterno(v, inicio, j);
+    qSortInterno(v, i, fim);
   }
 }
-
-
 
 int main() {
   int *v;
   int i;
   srand(0);
   
-  v = (int*) malloc (sizeof(int)*N);
-  for(i = 0; i< N; i++) {
+  v = (int*) malloc(sizeof(int)*N);
+  for(i = 0; i < N; i++) {
     v[i]= rand();
   }
   
@@ -81,5 +78,3 @@ int main() {
   printf("\n");
   
 }
-
-
