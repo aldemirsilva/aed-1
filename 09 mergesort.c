@@ -5,11 +5,11 @@
 #define N 100000000
 
 void intercala(int v[], int vaux[], int inicio, int fim, int meio) {
-  int i, j,k;
+  int i, j, k;
 
-  k = inicio;
   i = inicio;
   j = meio+1;
+  k = inicio;
 
   while((i <= meio) && (j <= fim)) {
 
@@ -38,7 +38,7 @@ void intercala(int v[], int vaux[], int inicio, int fim, int meio) {
   // COPIA DADOS DE VOLTA PRO VETOR ORIGINAL
 
   for(k = inicio; k <=fim; k++) {
-    v[k]=vaux[k];
+    v[k] = vaux[k];
   }
 }
  
@@ -47,9 +47,9 @@ void mergeSortInterno(int v[], int vaux[], int inicio, int fim) {
 
   if(inicio < fim) {
     meio = (inicio+fim)/2;
-    mergeSortInterno(v,vaux,inicio, meio);
-    mergeSortInterno(v,vaux, meio+1,fim);
-    intercala(v,vaux,inicio,fim,meio);
+    mergeSortInterno(v, vaux, inicio, meio);
+    mergeSortInterno(v, vaux, meio+1, fim);
+    intercala(v, vaux, inicio, fim, meio);
   }
 }
 
@@ -64,7 +64,7 @@ void mergeSort(int v[], int n) {
   // SENDO n grande ou uma variavel
 
   vaux = (int*) malloc(sizeof(int)*n);
-  mergeSortInterno(v,vaux,0,n-1);
+  mergeSortInterno(v, vaux, 0, n-1);
 
   // free libera a memória alocada para o vaux (como se destruisse o vetor, liberando memória)
   free(vaux);
@@ -77,7 +77,7 @@ int main() {
   int i;
 
   // srand será usada para gerar números aleatoriamente.
-  // srand me dá uma semente, passando 0, as chamadas de abaixo vão
+  // srand gera uma semente, passando 0, as chamadas de abaixo vão
   // sempre gerar os mesmos números entre execuções
   // usando srand(time(NULL)), os números gerados vão variar
   // a cada execução
@@ -90,10 +90,10 @@ int main() {
   // evite fazer int vaux[n];
   // SENDO n grande ou uma variavel
   
-  v = (int*) malloc (sizeof(int)*N);
-  for(i = 0; i< N; i++) {
+  v = (int*) malloc(sizeof(int)*N);
+  for(i = 0; i < N; i++) {
     // A função rand() abaixo gera um número aleatório!
-    v[i]= rand();
+    v[i] = rand();
   }
   
    printf("iniciando ordenacao...\n");
@@ -107,6 +107,3 @@ int main() {
   // libera a memória alocada para o vetor v;
   free(v);
 }
-
-
-
